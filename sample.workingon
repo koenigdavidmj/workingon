@@ -1,0 +1,25 @@
+devices:
+- name: kaylee
+  host: 1.2.3.4
+  user: root
+- name: zoe
+  host: 1.2.3.5
+  providers:
+    - 1.2.3.6
+    - 1.2.3.7
+    - 1.2.3.8
+- name: wash
+  host: 1.2.3.10
+- name: jayne
+  host: 1.2.3.11
+
+groups:
+  scary: [zoe, jayne]
+  nice: [kaylee, wash]
+
+files:
+  - pattern: "*.iso"
+    target: "/shared/images"
+  - pattern: "*.rpm"
+    target: "/shared"
+    script: "mount -o rw,remount /usr && rpm -Uvh % && rm -v %"

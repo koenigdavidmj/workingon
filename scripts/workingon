@@ -1,3 +1,18 @@
 #!/usr/bin/env python
 
-print '1.2.3.4'
+import workingon
+
+import sys
+
+with open("sample.workingon") as f:
+    data = workingon.State.load(f)
+
+try:
+    group = data.groups['nice']
+except KeyError as e:
+    print 'Group', 'nice', 'does not exist'
+    sys.exit(1)
+
+for device in group.members.itervalues():
+    print device.host
+
