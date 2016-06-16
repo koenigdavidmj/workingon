@@ -8,4 +8,6 @@ setup(name='workingon',
       author='David Koenig',
       author_email='koenigdavidmj@gmail.com',
       scripts=['scripts/workingon'],
+      packages=['workingon'],
+      package_dir={'workingon': 'src/workingon'},
 )
